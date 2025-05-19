@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 /**
  * A hangman game.
@@ -18,13 +19,19 @@ public class Hangman
      */
     public static void main(String[] args)
     {
+        Random r = new Random();
+        
+        String[] secrets = {"garrafa", "elefante",
+        "suspeito", "banana", "carro"};
+        int selected = r.nextInt(secrets.length);
+        
         System.out.println("Jogo da Forca");
         System.out.println("=============");
         
-        String secret = "garrafa";
+        String secret = secrets[selected];
         String hint =   "-------";
 
-        System.out.println(hint);
+        System.out.println(secret);
 
         // Scanner in;
         // int a;
