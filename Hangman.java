@@ -29,9 +29,13 @@ public class Hangman
         System.out.println("=============");
         
         String secret = secrets[selected];
-        String hint =   "-------";
+        String hint =   "";
+        for (int i = 0; i < secret.length(); i++) {
+            hint = hint + "-";
+        }
 
         System.out.println(secret);
+        System.out.println(hint);
 
         // Scanner in;
         // int a;
