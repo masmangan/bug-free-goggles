@@ -27,27 +27,24 @@ public class Hangman
      */
     public static String update(String hint, String secret, char guess) {
         String newHint = "";
-        
+
         for (int i = 0; i < secret.length(); i++) {
             char h = hint.charAt(i);
             char s = secret.charAt(i);
             char g = guess;
-            
+
             //System.out.printf("H=%c S=%c G=%c\n", h, s, g);
-            
+
             if (s == g) {
                 newHint = newHint + g;
             } else {
                 newHint = newHint + h;
             }
-            
-            
+
         }
-        
         return newHint;
     }
 
-    
     
     /**
      * 
@@ -88,15 +85,24 @@ public class Hangman
                 System.out.println("Voce perdeu!!");
                 break;
             }
-            
+
             if (secret.equals(hint)) {
                 System.out.println("Voce ganhou!!");
                 break;
             }
-            
 
             System.out.print("Escolha uma letra: ");
             String line = in.nextLine();
+            if (line.length() > 1) {
+                System.out.println("TUDO OU NADA!");
+                if (secret.equals(line)) {
+                    System.out.println("VOCE VENCEU!");
+                } else {
+                    System.out.println("VOCE PERDEU!");
+                    System.out.printf("A palavra era: %s.\n", secret);                    
+                }
+                break;
+            }
             guess = line.charAt(0);
 
             System.out.printf("Voce escolheu: %c.\n", guess);
